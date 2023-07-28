@@ -1,0 +1,71 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 1000px;
+}
+
+.input {
+  box-sizing: border-box;
+  margin: 0 0 20px;
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  color: #061b2c;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  background-color: #4f7696;
+  border: none;
+  border-radius: 10px;
+}
+
+.input:focus {
+  outline: 1px solid rgba(225, 225, 225, 1);
+}
+
+.input::placeholder {
+  color: #061b2c;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 17px;
+}
+
+.input__label {
+  align-self: flex-start;
+  margin: 0 0 10px;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.button {
+  all: unset;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 500px;
+  height: 40px;
+  background: inherit;
+  border: 1px solid rgba(225, 225, 225, 1);
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  transition: background-color .5s ease;
+}
+
+.button:disabled {
+  opacity: 30%;
+}
+
+.button:focus, .button:active {
+  background-color: #02111d;
+}
