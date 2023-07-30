@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 
 import userCardStyles from './user-card.module.css';
 
-import {TUserCard} from '../../services/types/props-types';
+import {TUserCard} from '../../services/types/props';
 
 export const UserCard: FunctionComponent<TUserCard> = (props) => {
   return (

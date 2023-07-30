@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import popupStyles from './popup.module.css';
 
 import {Overlay} from '../overlay/overlay';
-import {TPopup} from '../../services/types/props-types';
+import {TPopup} from '../../services/types/props';
 import userCardStyles from '../user-card/user-card.module.css';
 
 export const Popup: FunctionComponent<TPopup> = (props) => {

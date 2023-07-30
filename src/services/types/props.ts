@@ -29,3 +29,13 @@ export type TPopup = {
   followers: number,
   following: number
 }
+
+export type TErrorState = {
+  message?: string
+};
+
+export type TUsersList = {
+  login: string,
+  avatarUrl: string,
+  profileUrl: string
+}

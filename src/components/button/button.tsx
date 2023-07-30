@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 
 import buttonStyles from './button.module.css';
 
-import {ButtonName, TButton} from '../../services/types/props-types';
+import {ButtonName, TButton} from '../../services/types/props';
 
 export const Button: FunctionComponent<TButton> = (props) => {
   return (

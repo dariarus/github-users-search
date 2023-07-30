@@ -2,7 +2,7 @@ import React, {FunctionComponent} from 'react';
 
 import radioButtonStyles from './radio-button.module.css';
 
-import {TRadioButton} from '../../services/types/props-types';
+import {TRadioButton} from '../../services/types/props';
 
 export const RadioButton: FunctionComponent<TRadioButton> = (props) => {
 
