@@ -1,0 +1,43 @@
+.button {
+  all: unset;
+  box-sizing: border-box;
+  margin-top: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  transition: background-color .5s ease, border .5s ease;
+}
+
+.button_search {
+  padding: 12px 10px;
+  width: 500px;
+  border: 1px solid rgba(225, 225, 225, 1);
+  background: inherit;
+}
+
+.button_more {
+  padding: 20px;
+  width: 200px;
+  border: 0;
+  background: #0C1821;
+}
+
+.button:disabled {
+  opacity: 30%;
+}
+
+.button_search:hover,
+.button_search:focus,
+.button_search:active {
+  background-color: #02111d;
+}
+
+.button_more:hover,
+.button_more:focus,
+.button_more:active {
+  background-color: #356A96;
+}

@@ -1,3 +1,12 @@
+export type TButton = {
+  buttonName: string,
+}
+
+export enum ButtonName {
+  SEARCH = 'Искать',
+  MORE = 'Показать еще'
+}
+
 export type TRadioButton = {
   label: string,
   checked: boolean,

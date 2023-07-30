@@ -2,6 +2,7 @@ import React, {FunctionComponent, useState} from 'react';
 
 import formStyles from './search-form.module.css';
 import {RadioButton} from '../radio-button/radio-button';
+import {Button} from '../button/button';
 
 export const SearchForm: FunctionComponent = () => {
   const [checked, setChecked] = useState(true)
@@ -16,7 +17,7 @@ export const SearchForm: FunctionComponent = () => {
                placeholder="Введите имя пользователя"
                className={formStyles.input}
         />
-        <button type="submit" className={formStyles.button}>Искать</button>
+        <Button buttonName="Искать"/>
       </form>
       <form className={`${formStyles.form} ${formStyles['form_choose']}`}>
         <p className={formStyles['form__heading']}>Сортировать пользователей по количеству репозиториев:</p>
