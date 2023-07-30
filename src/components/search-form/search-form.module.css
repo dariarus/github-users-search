@@ -1,10 +1,32 @@
 .form {
   display: flex;
+  margin: auto;
+  width: 1000px;
+}
+
+.form_search {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  width: 1000px;
+}
+
+.form_choose {
+  margin: 40px auto;
+  align-items: flex-start;
+}
+
+.form__heading {
+  margin: 0 30px 0 0;
+  color: #fff;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.form__radio-buttons-wrap {
+  display: flex;
+  align-items: center;
 }
 
 .input {

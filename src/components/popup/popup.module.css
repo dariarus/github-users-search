@@ -1,0 +1,82 @@
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 470px;
+  max-height: 550px;
+  padding: 20px 15px;
+  background-color: #061b2c;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  z-index: 4;
+  transform: translate(-50%, -50%); /* попап любого размера находится ровно посередине */
+}
+
+.popup__cross-icon {
+  all: unset;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  width: 20px;
+  height: 20px;
+  background: url(../../images/cross.svg) no-repeat center center #061b2c;
+  cursor: pointer;
+  transition-duration: 0.2s; /* скорость наступления эффекта hover */
+}
+
+.popup__cross-icon:hover {
+  transform: rotate(100grad);
+}
+
+.popup__text {
+  margin: 0;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-style: normal;
+  color: #fff;
+}
+
+.popup__text_heading {
+  align-self: center;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 42px;
+  text-align: center;
+}
+
+.popup__text_paragraph {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.popup__text_link {
+  align-self: center;
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 22px;
+  text-decoration: none;
+  color: #4f7696;
+  transition: color .5s ease;
+}
+
+.popup__text_link:hover,
+.popup__text_link:focus,
+.popup__text_link:active {
+  color: #fff;
+}
+
+.popup__text_paragraph:last-of-type {
+  margin-bottom: 0;
+}
+
+.popup__text_span {
+  color: #356a96;
+}
