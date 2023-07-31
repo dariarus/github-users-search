@@ -1,5 +1,6 @@
 export type TButton = {
   buttonName: string,
+  onClick?: () => void
 }
 
 export enum ButtonName {
@@ -36,6 +37,6 @@ export type TErrorState = {
 
 export type TUsersList = {
   login: string,
-  avatarUrl: string,
-  profileUrl: string
+  avatar_url: string,
+  html_url: string
 }

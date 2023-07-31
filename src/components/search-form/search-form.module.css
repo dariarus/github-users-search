@@ -11,17 +11,22 @@
 }
 
 .form_choose {
-  margin: 40px auto;
+  margin: 20px auto 40px;
   align-items: flex-start;
 }
 
 .form__heading {
-  margin: 0 30px 0 0;
+  align-self: flex-start;
+  margin: 40px 0 0;
   color: #fff;
   font-family: 'Inter', 'Arial', sans-serif;
   font-weight: 400;
   font-size: 17px;
   line-height: 21px;
+}
+
+.form_choose > .form__heading {
+  margin: 0 30px 0 0;
 }
 
 .form__radio-buttons-wrap {
@@ -36,9 +41,9 @@
   padding: 10px;
   color: #061b2c;
   font-family: 'Inter', 'Arial', sans-serif;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 26px;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 27px;
   background-color: #4f7696;
   border: none;
   border-radius: 10px;
@@ -54,6 +59,14 @@
   font-weight: 200;
   font-size: 15px;
   line-height: 17px;
+}
+
+/* Предотвратить изменение фона поля ввода при автозаполнении: */
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #4f7696 inset !important;
 }
 
 .input__label {

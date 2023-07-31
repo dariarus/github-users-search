@@ -3,7 +3,7 @@ import {ActionCreatorWithoutPayload, ActionCreatorWithPayload} from '@reduxjs/to
 import {TErrorState, TUsersList} from './props';
 
 export interface IUsersListActions {
-  getUsersListSuccess: ActionCreatorWithPayload<ReadonlyArray<TUsersList>>,
+  getUsersListSuccess: ActionCreatorWithPayload<{total_count: number, items: ReadonlyArray<TUsersList>}>,
   getUsersList: ActionCreatorWithoutPayload<string>,
   getUsersListFailed: ActionCreatorWithPayload<TErrorState>
 }

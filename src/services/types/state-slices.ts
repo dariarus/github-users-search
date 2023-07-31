@@ -4,5 +4,6 @@ export interface IUsersListSliceState {
   isLoading: boolean,
   hasError: boolean,
   error: TErrorState,
+  totalResults: number,
   usersList: ReadonlyArray<TUsersList>
 }

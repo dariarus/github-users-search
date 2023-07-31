@@ -1,0 +1,1 @@
+export const gitHubRestApiSearchUrl = 'https://api.github.com/search/users?q=';

@@ -9,7 +9,9 @@ export const Button: FunctionComponent<TButton> = (props) => {
     <button type="submit"
             className={props.buttonName === ButtonName.SEARCH
               ? `${buttonStyles.button} ${buttonStyles['button_search']}`
-              : `${buttonStyles.button} ${buttonStyles['button_more']}`}>
+              : `${buttonStyles.button} ${buttonStyles['button_more']}`}
+            onClick={props.onClick}
+    >
       {props.buttonName}
     </button>
   )

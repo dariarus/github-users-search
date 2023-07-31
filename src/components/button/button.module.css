@@ -31,13 +31,11 @@
 }
 
 .button_search:hover,
-.button_search:focus,
 .button_search:active {
   background-color: #02111d;
 }
 
 .button_more:hover,
-.button_more:focus,
 .button_more:active {
   background-color: #356A96;
 }

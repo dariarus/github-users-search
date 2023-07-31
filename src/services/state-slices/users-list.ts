@@ -10,15 +10,17 @@ export const usersListSlice = createSlice({
     isLoading: false,
     hasError: false,
     error: {},
+    totalResults: 0,
     usersList: []
   } as IUsersListSliceState,
   reducers: {
-    getUsersListSuccess: (state, action: PayloadAction<ReadonlyArray<TUsersList>>) => {
+    getUsersListSuccess: (state, action: PayloadAction<{total_count: number, items: ReadonlyArray<TUsersList>}>) => {
       return {
         ...state,
         isLoading: false,
         hasError: false,
-        usersList: action.payload
+        totalResults: action.payload.total_count,
+        usersList: action.payload.items
       }
     },
     getUsersList: (state) => {

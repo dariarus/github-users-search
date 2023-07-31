@@ -2,35 +2,33 @@ import React from 'react';
 
 import appStyles from './app.module.css';
 
+import {useSelector} from '../../services/types/hooks';
+
 import {SearchForm} from '../search-form/search-form';
 import {UserCard} from '../user-card/user-card';
 import {Popup} from '../popup/popup';
 import {Button} from '../button/button';
 
 function App() {
+  const {usersListState} = useSelector(state => state)
+
   return (
     <main className={appStyles.main}>
       <SearchForm/>
       <div className={appStyles['main__cards-wrap']}>
-        <UserCard
-          avatarSrc="https://images.immediate.co.uk/production/volatile/sites/23/2023/01/Giant-panda-c2c51b8.jpg?resize=768,574"
-          login="dariarus"
-          repoNumber={2}
-          profileUrl="https://github.com/dariarus"
-        />
-        <UserCard
-          avatarSrc="https://images.immediate.co.uk/production/volatile/sites/23/2023/01/Giant-panda-c2c51b8.jpg?resize=768,574"
-          login="dariarus"
-          repoNumber={8}
-          profileUrl="https://github.com/dariarus"
-        />
-        <UserCard
-          avatarSrc="https://images.immediate.co.uk/production/volatile/sites/23/2023/01/Giant-panda-c2c51b8.jpg?resize=768,574"
-          login="dariarus"
-          repoNumber={3}
-          profileUrl="https://github.com/dariarus"
-        />
-        <Button buttonName="Показать еще"/>
+        {
+          usersListState.usersList.map((user) => {
+            return (
+              <UserCard
+                avatarSrc={user.avatar_url}
+                login={user.login}
+                repoNumber={2}
+                profileUrl={user.html_url}
+              />
+            )
+          })
+        }
+        <Button buttonName="Показать еще" onClick={() => console.log('hi')}/>
       </div>
       {/*<Popup onClosePopup={() => console.log('hi')}*/}
       {/*       login="dariarus"*/}
