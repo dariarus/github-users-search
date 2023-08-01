@@ -7,3 +7,11 @@ export interface IUsersListSliceState {
   totalResults: number,
   usersList: ReadonlyArray<TUsersList>
 }
+
+export interface IUserReposCount {
+  isLoading: boolean,
+  hasError: boolean,
+  error: TErrorState,
+  // reposCount: Map<string, number>
+  reposCount: { [login: string]: number }
+}

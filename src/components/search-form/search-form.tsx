@@ -42,6 +42,9 @@ export const SearchForm: FunctionComponent = () => {
           <RadioButton label="по убыванию" checked={checked} onClickRadio={() => {
             setChecked(!checked)
           }}/>
+          <RadioButton label="не сортировать" checked={checked} onClickRadio={() => {
+            setChecked(!checked)
+          }}/>
         </div>
       </form>
     </>

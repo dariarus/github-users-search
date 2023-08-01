@@ -1,16 +1,24 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 
 import appStyles from './app.module.css';
 
-import {useSelector} from '../../services/types/hooks';
+import {useAppDispatch, useSelector} from '../../services/types/hooks';
 
 import {SearchForm} from '../search-form/search-form';
 import {UserCard} from '../user-card/user-card';
 import {Popup} from '../popup/popup';
 import {Button} from '../button/button';
+import {getUserReposCount} from '../../services/actions/users';
+import {AppThunk} from '../../services/types';
+import {ThunkAction} from 'redux-thunk';
 
 function App() {
-  const {usersListState} = useSelector(state => state)
+  const {usersListState, userReposCountState} = useSelector(state => state);
+  const dispatch = useAppDispatch();
+
+  // Promise.resolve(getUserReposCount('dariarus')).then(res => console.log(res))
+
+console.log(userReposCountState.reposCount)
 
   return (
     <main className={appStyles.main}>
@@ -22,7 +30,8 @@ function App() {
               <UserCard
                 avatarSrc={user.avatar_url}
                 login={user.login}
-                repoNumber={2}
+                // repoNumber={3}
+                repoNumber={userReposCountState.reposCount[user.login]}
                 profileUrl={user.html_url}
               />
             )

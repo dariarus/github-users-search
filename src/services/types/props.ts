@@ -17,7 +17,7 @@ export type TRadioButton = {
 export type TUserCard = {
   avatarSrc: string,
   login: string,
-  repoNumber: number,
+  repoNumber: number | undefined,
   profileUrl: string
 }
 
