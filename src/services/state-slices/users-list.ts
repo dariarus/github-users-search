@@ -10,6 +10,7 @@ export const usersListSlice = createSlice({
     isLoading: false,
     hasError: false,
     error: {},
+    searchingValue: '',
     totalResults: 0,
     usersList: []
   } as IUsersListSliceState,

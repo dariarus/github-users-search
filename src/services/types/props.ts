@@ -1,12 +1,15 @@
+import {MouseEventHandler} from 'react';
+
 export type TButton = {
   buttonName: string,
+  buttonType: string,
   onClick?: () => void
 }
 
-export enum ButtonName {
-  SEARCH = 'Искать',
-  MORE = 'Показать еще'
-}
+// export enum ButtonType {
+//   SEARCH = 'search',
+//   PAGINATION_PAGE = 'pagination'
+// }
 
 export type TRadioButton = {
   label: string,
@@ -39,4 +42,11 @@ export type TUsersList = {
   login: string,
   avatar_url: string,
   html_url: string
+}
+
+export type TPagination = {
+  totalResults: number,
+  currentPage: number,
+  siblingCount: number, // сколько кнопок с номерами страниц отрисовывать справа и слева от кнопки текущей страницы
+  itemsPerPage: number
 }

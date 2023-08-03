@@ -1,9 +1,10 @@
 import {AppDispatch, AppThunk} from '../types';
 import {usersListActions} from '../state-slices/users-list';
-import {gitHubRestApiSearchUrl} from '../../utils/constants';
-import {getResponseData} from './api';
+import {gitHubRestApiSearchUrl, itemsCountPerPage} from '../../utils/constants';
+import {getResponseData} from './json-verification';
 import {TUsersList} from '../types/props';
-import {userReposCountActions, userReposCountSlice} from '../state-slices/repo-count';
+import {userReposCountActions} from '../state-slices/repo-count';
+import {paginationActions} from '../state-slices/pagination';
 
 export const getUserReposCount = (login: string) => {
   return function (dispatch: AppDispatch) {
@@ -32,12 +33,12 @@ export const getUserReposCount = (login: string) => {
   }
 }
 
-export const getUsersList = (login: string): AppThunk => {
+export const getUsersList = (login: string, pageNumber: number): AppThunk => {
   return function (dispatch: AppDispatch) {
 
     dispatch(usersListActions.getUsersList());
 
-    fetch(`${gitHubRestApiSearchUrl}/users?q=${login}+in:login`, {
+    fetch(`${gitHubRestApiSearchUrl}/users?q=${login}+in:login&per_page=${itemsCountPerPage}&page=${pageNumber}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -50,10 +51,11 @@ export const getUsersList = (login: string): AppThunk => {
       })
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
-        const logins = res.items.map(item => item.login);
-        logins.forEach((login) => {
-          return dispatch(getUserReposCount(login))
-        })
+        // const logins = res.items.map(item => item.login);
+        // logins.forEach((login) => {
+        //   return dispatch(getUserReposCount(login))
+        // });
+        dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}))
       })
       .catch((err) => {
         console.log(err.message)

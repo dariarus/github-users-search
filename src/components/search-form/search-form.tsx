@@ -1,10 +1,11 @@
-import React, {FormEvent, FunctionComponent, useState} from 'react';
+import React, {ChangeEvent, FormEvent, FunctionComponent, useCallback, useState} from 'react';
 
 import formStyles from './search-form.module.css';
 import {RadioButton} from '../radio-button/radio-button';
 import {Button} from '../button/button';
 import {getUsersList} from '../../services/actions/users';
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
+import {searchValueActions} from '../../services/state-slices/search-value';
 
 export const SearchForm: FunctionComponent = () => {
   const [checked, setChecked] = useState(true);
@@ -14,23 +15,30 @@ export const SearchForm: FunctionComponent = () => {
 
   const dispatch = useAppDispatch();
 
+  const handleSetSearchValue = useCallback((value: string) => {
+    dispatch(searchValueActions.setSearchValue(value));
+  }, [dispatch])
+
   return (
     <>
       <form className={`${formStyles.form} ${formStyles['form_search']}`}
             onSubmit={(e: FormEvent<HTMLFormElement>) => {
               e.preventDefault();
-              dispatch(getUsersList(searchValue));
+              dispatch(getUsersList(searchValue, 1));
             }}>
         <label htmlFor="search" className={formStyles['input__label']}>Поиск по пользователям GitHub</label>
         <input type="text"
                id="search"
                name="search"
-               placeholder="Введите имя пользователя"
+               placeholder="Введите логин пользователя"
                value={searchValue}
                className={formStyles.input}
-               onChange={(e) => setSearchValue(e.target.value)}
+               onChange={(e: ChangeEvent<HTMLInputElement>) => {
+                 setSearchValue(e.target.value);
+                 handleSetSearchValue(e.target.value);
+               }}
         />
-        <Button buttonName="Искать"/>
+        <Button buttonName="Искать" buttonType="search"/>
         <p className={formStyles['form__heading']}>Найдено результатов: {usersListState.totalResults}</p>
       </form>
       <form className={`${formStyles.form} ${formStyles['form_choose']}`}>

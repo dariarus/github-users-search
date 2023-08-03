@@ -4,8 +4,14 @@
   width: 1000px;
 }
 
-.main__cards-wrap {
+.users-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px 0;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
 }
+

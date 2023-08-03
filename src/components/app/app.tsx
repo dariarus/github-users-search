@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 
 import appStyles from './app.module.css';
 
@@ -7,38 +7,36 @@ import {useAppDispatch, useSelector} from '../../services/types/hooks';
 import {SearchForm} from '../search-form/search-form';
 import {UserCard} from '../user-card/user-card';
 import {Popup} from '../popup/popup';
-import {Button} from '../button/button';
-import {getUserReposCount} from '../../services/actions/users';
-import {AppThunk} from '../../services/types';
-import {ThunkAction} from 'redux-thunk';
+import {Pagination} from '../pagination-page/pagination';
+import {itemsCountPerPage, siblingPageCountInView} from '../../utils/constants';
+import {getUsersList} from '../../services/actions/users';
 
 function App() {
-  const {usersListState, userReposCountState} = useSelector(state => state);
-  const dispatch = useAppDispatch();
-
-  // Promise.resolve(getUserReposCount('dariarus')).then(res => console.log(res))
-
-console.log(userReposCountState.reposCount)
+  const {usersListState, userReposCountState, paginationState} = useSelector(state => state);
 
   return (
     <main className={appStyles.main}>
       <SearchForm/>
-      <div className={appStyles['main__cards-wrap']}>
+      <ul className={appStyles['users-list']}>
         {
-          usersListState.usersList.map((user) => {
+          usersListState.usersList.map((user, ind) => {
             return (
               <UserCard
+                key={ind}
                 avatarSrc={user.avatar_url}
                 login={user.login}
-                // repoNumber={3}
                 repoNumber={userReposCountState.reposCount[user.login]}
                 profileUrl={user.html_url}
               />
             )
           })
         }
-        <Button buttonName="Показать еще" onClick={() => console.log('hi')}/>
-      </div>
+      </ul>
+      <Pagination totalResults={paginationState.totalResults}
+                  currentPage={paginationState.currentPage}
+                  siblingCount={siblingPageCountInView}
+                  itemsPerPage={itemsCountPerPage}
+      />
       {/*<Popup onClosePopup={() => console.log('hi')}*/}
       {/*       login="dariarus"*/}
       {/*       profileUrl="https://github.com/dariarus"*/}

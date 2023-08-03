@@ -6,7 +6,7 @@ import {TUserCard} from '../../services/types/props';
 
 export const UserCard: FunctionComponent<TUserCard> = (props) => {
   return (
-    <div className={userCardStyles.card}>
+    <li className={userCardStyles.card}>
       <div className={userCardStyles['card__content-wrap']}>
         <img src={props.avatarSrc} alt="Аватар пользователя" className={userCardStyles.avatar}/>
         <div className={userCardStyles['card__text-wrap']}>
@@ -21,6 +21,6 @@ export const UserCard: FunctionComponent<TUserCard> = (props) => {
          target="_blank">
         Перейти в профиль на GitHub
       </a>
-    </div>
+    </li>
   )
 }
