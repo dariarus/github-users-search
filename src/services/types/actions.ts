@@ -1,9 +1,10 @@
 import {ActionCreatorWithoutPayload, ActionCreatorWithPayload} from '@reduxjs/toolkit';
 
-import {TErrorState, TUsersList} from './props';
+import {TErrorState} from './props';
+import {TPopupData, TUsersListData} from './response-data';
 
 export interface IUsersListActions {
-  getUsersListSuccess: ActionCreatorWithPayload<{ total_count: number, items: ReadonlyArray<TUsersList> }>,
+  getUsersListSuccess: ActionCreatorWithPayload<{ total_count: number, items: ReadonlyArray<TUsersListData> }>,
   getUsersList: ActionCreatorWithoutPayload<string>,
   getUsersListFailed: ActionCreatorWithPayload<TErrorState>
 }
@@ -27,6 +28,14 @@ export interface ISearchValueActions {
   clearSearchValueState: ActionCreatorWithoutPayload<string>
 }
 
+export interface IPopupActions {
+  getPopupDataSuccess: ActionCreatorWithPayload<TPopupData>,
+  getPopupData: ActionCreatorWithoutPayload<string>,
+  getPopupDataFailed: ActionCreatorWithPayload<TErrorState>,
+  onOpenPopup: ActionCreatorWithoutPayload<string>,
+  onClosePopup: ActionCreatorWithoutPayload<string>,
+}
+
 type TUsersListActions = IUsersListActions
 
 type TUserReposCountActions = IUserReposCountActions
@@ -35,8 +44,11 @@ type TPaginationActions = IPaginationActions
 
 type TSearchValueActions = ISearchValueActions
 
+type TPopupActions = IPopupActions
+
 export type TApplicationActions =
   TUsersListActions
   | TUserReposCountActions
   | TPaginationActions
   | TSearchValueActions
+  | TPopupActions

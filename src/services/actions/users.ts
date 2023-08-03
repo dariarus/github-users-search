@@ -1,10 +1,14 @@
-import {AppDispatch, AppThunk} from '../types';
-import {usersListActions} from '../state-slices/users-list';
-import {gitHubRestApiSearchUrl, itemsCountPerPage} from '../../utils/constants';
 import {getResponseData} from './json-verification';
-import {TUsersList} from '../types/props';
+
+import {usersListActions} from '../state-slices/users-list';
 import {userReposCountActions} from '../state-slices/repo-count';
 import {paginationActions} from '../state-slices/pagination';
+import {popupActions} from '../state-slices/popup';
+
+import {gitHubRestApiSearchUrl, gitHubRestApiUrl, itemsCountPerPage} from '../../utils/constants';
+
+import {AppDispatch, AppThunk} from '../types';
+import {TPopupData, TUsersListData} from '../types/response-data';
 
 export const getUserReposCount = (login: string) => {
   return function (dispatch: AppDispatch) {
@@ -47,7 +51,7 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
       }
     })
       .then((res) => {
-        return getResponseData<{ total_count: number, items: ReadonlyArray<TUsersList> }>(res)
+        return getResponseData<{ total_count: number, items: ReadonlyArray<TUsersListData> }>(res)
       })
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
@@ -60,6 +64,32 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
       .catch((err) => {
         console.log(err.message)
         dispatch(usersListActions.getUsersListFailed({message: err.message}))
+      });
+  }
+}
+
+export const getPopupUserData = (login: string) => {
+  return function (dispatch: AppDispatch) {
+
+    dispatch(popupActions.getPopupData());
+
+    return fetch(`${gitHubRestApiUrl}/users/${login}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/vnd.github+json',
+        'Authorization': 'Bearer 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'
+      }
+    })
+      .then((res) => {
+        return getResponseData<TPopupData>(res)
+      })
+      .then((res) => {
+        dispatch(popupActions.getPopupDataSuccess(res))
+      })
+      .catch((err) =>  {
+        console.log(err.message);
+        dispatch(popupActions.getPopupDataFailed({message: err.message}));
       });
   }
 }

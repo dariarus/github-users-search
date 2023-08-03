@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {TErrorState} from '../types/props';
 import {IPaginationActions, ISearchValueActions} from '../types/actions';
-import {ISearchValue} from '../types/state-slices';
+import {ISearchValue} from '../types/store-slices';
 
 export const searchValueSlice = createSlice({
   name: 'searchValue',

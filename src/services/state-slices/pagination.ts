@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-import {IPagination} from '../types/state-slices';
+import {IPagination} from '../types/store-slices';
 import {TErrorState} from '../types/props';
 import {IPaginationActions} from '../types/actions';
 

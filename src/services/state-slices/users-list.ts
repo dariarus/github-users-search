@@ -1,8 +1,9 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-import {TErrorState, TUsersList} from '../types/props';
+import {TErrorState} from '../types/props';
 import {IUsersListActions} from '../types/actions';
-import {IUsersListSliceState} from '../types/state-slices';
+import {IUsersListSliceState} from '../types/store-slices';
+import {TUsersListData} from '../types/response-data';
 
 export const usersListSlice = createSlice({
   name: 'usersList',
@@ -15,7 +16,7 @@ export const usersListSlice = createSlice({
     usersList: []
   } as IUsersListSliceState,
   reducers: {
-    getUsersListSuccess: (state, action: PayloadAction<{total_count: number, items: ReadonlyArray<TUsersList>}>) => {
+    getUsersListSuccess: (state, action: PayloadAction<{total_count: number, items: ReadonlyArray<TUsersListData>}>) => {
       return {
         ...state,
         isLoading: false,

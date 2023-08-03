@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: 470px;
+  width: 500px;
   max-height: 550px;
   padding: 20px 15px;
   background-color: #061b2c;
@@ -79,4 +79,9 @@
 
 .popup__text_span {
   color: #356a96;
+}
+
+.popup__text_span-secondary {
+  color: #fff;
+  opacity: 30%;
 }

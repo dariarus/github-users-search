@@ -30,7 +30,7 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
   let lastPage = 0;
 
   if (paginationRange) {
-    // Если в диапазоне меньше 2 страниц, компонент не будет отрисован
+    // Если из данных получается меньше 2 страниц, компонент не будет отрисован
     if (currentPage === 0 || paginationRange.length < 2) {
       return null;
     }
@@ -71,12 +71,8 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
                         className={pageNumber === currentPage
                           ? `${paginationPageButtonStyles.item} ${paginationPageButtonStyles['item_selected']}`
                           : `${paginationPageButtonStyles.item}`}
-                        // onClick={onChangePage(pageNumber as number)}
-                        // onClick={() => onChangePage(pageNumber as number)}
                         onClick={(e: MouseEvent<HTMLButtonElement>) => {
                           e.preventDefault();
-                          // dispatch(paginationActions.getNextPage(pageNumber as number))
-                          // onChangePage(pageNumber as number)
                           dispatch(getUsersList(searchValueState.searchValue, pageNumber as number))
                         }}
                 >

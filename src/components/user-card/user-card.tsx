@@ -6,7 +6,8 @@ import {TUserCard} from '../../services/types/props';
 
 export const UserCard: FunctionComponent<TUserCard> = (props) => {
   return (
-    <li className={userCardStyles.card}>
+    <li className={userCardStyles.card}
+        onClick={props.onClickCard}>
       <div className={userCardStyles['card__content-wrap']}>
         <img src={props.avatarSrc} alt="Аватар пользователя" className={userCardStyles.avatar}/>
         <div className={userCardStyles['card__text-wrap']}>
@@ -18,7 +19,7 @@ export const UserCard: FunctionComponent<TUserCard> = (props) => {
       </div>
       <a href={props.profileUrl}
          className={`${userCardStyles['card__text']} ${userCardStyles['card__text_paragraph']} ${userCardStyles['card__text_link']}`}
-         target="_blank">
+         target="_blank" rel="noreferrer">
         Перейти в профиль на GitHub
       </a>
     </li>

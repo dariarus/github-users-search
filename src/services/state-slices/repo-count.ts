@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {IUserReposCount} from '../types/state-slices';
+import {IUserReposCount} from '../types/store-slices';
 import {TErrorState} from '../types/props';
 import {IUserReposCountActions} from '../types/actions';
 

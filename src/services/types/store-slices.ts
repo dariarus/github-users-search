@@ -1,4 +1,5 @@
-import {TErrorState, TUsersList} from './props';
+import {TErrorState} from './props';
+import {TUsersListData} from './response-data';
 
 export interface IUsersListSliceState {
   isLoading: boolean,
@@ -6,7 +7,7 @@ export interface IUsersListSliceState {
   error: TErrorState,
   searchingValue: string,
   totalResults: number,
-  usersList: ReadonlyArray<TUsersList>
+  usersList: ReadonlyArray<TUsersListData>
 }
 
 export interface IUserReposCount {
@@ -27,4 +28,14 @@ export interface IPagination {
 
 export interface ISearchValue {
   searchValue: string
+}
+
+export interface IPopup {
+  isOpen: boolean,
+  login: string,
+  profileUrl: string,
+  username: string | null,
+  userInfo: string | null,
+  followers: number,
+  following: number
 }
