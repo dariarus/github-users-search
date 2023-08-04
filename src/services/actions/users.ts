@@ -55,10 +55,7 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
       })
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
-        const logins = res.items.map(item => item.login);
-        logins.forEach((login) => {
-          return dispatch(getUserReposCount(login))
-        });
+
         dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}))
       })
       .catch((err) => {

@@ -12,6 +12,7 @@ export const popupSlice = createSlice({
     profileUrl: '',
     username: null,
     userInfo: null,
+    reposCount: 0,
     followers: 0,
     following: 0
   } as IPopup,
@@ -25,6 +26,7 @@ export const popupSlice = createSlice({
         profileUrl: action.payload.html_url,
         username: action.payload.name,
         userInfo: action.payload.bio,
+        reposCount: action.payload.public_repos,
         followers: action.payload.followers,
         following: action.payload.following
       }

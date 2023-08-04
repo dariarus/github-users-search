@@ -36,6 +36,7 @@ export interface IPopup {
   profileUrl: string,
   username: string | null,
   userInfo: string | null,
+  reposCount: number,
   followers: number,
   following: number
 }

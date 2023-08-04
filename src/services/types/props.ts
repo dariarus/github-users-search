@@ -16,7 +16,7 @@ export type TRadioButton = {
 export type TUserCard = {
   avatarSrc: string,
   login: string,
-  repoNumber: number,
+  type: string,
   profileUrl: string,
   onClickCard: () => void
 }
@@ -27,6 +27,7 @@ export type TPopup = {
   profileUrl: string,
   username: string | null,
   userInfo: string | null,
+  reposCount: number,
   followers: number,
   following: number
 }

@@ -13,8 +13,14 @@ export const UserCard: FunctionComponent<TUserCard> = (props) => {
         <div className={userCardStyles['card__text-wrap']}>
           <h2
             className={`${userCardStyles['card__text']} ${userCardStyles['card__text_heading']}`}>{props.login}</h2>
-          <p className={`${userCardStyles['card__text']} ${userCardStyles['card__text_paragraph']}`}>Публичных
-            репозиториев: {props.repoNumber}</p>
+          <p className={`${userCardStyles['card__text']} ${userCardStyles['card__text_paragraph']}`}>
+            <span className={`${userCardStyles['card__text']} ${userCardStyles['card__text_span']}`}>
+              Тип аккаунта:&ensp;
+            </span>
+            {props.type === 'User'
+            ? 'Пользователь'
+            : 'Организация'}
+          </p>
         </div>
       </div>
       <a href={props.profileUrl}

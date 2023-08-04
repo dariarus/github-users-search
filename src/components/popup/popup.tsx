@@ -59,10 +59,17 @@ export const Popup: FunctionComponent<TPopup> = (props) => {
                 props.userInfo !== null
                   ? props.userInfo
                   : <span
-                  className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span-secondary']}`}>
+                    className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span-secondary']}`}>
                     Пользователь ничего не написал о себе
                 </span>
               }
+            </p>
+            <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
+              <span
+                className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span']}`}>
+                Публичных репозиториев:&ensp;
+              </span>
+              {props.reposCount}
             </p>
             <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
               <span

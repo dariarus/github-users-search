@@ -60,6 +60,14 @@
   color: #fff;
 }
 
+.card__text_span {
+  margin-top: 10px;
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 21px;
+  color: #356a96;
+}
+
 .card__text_link {
   position: relative;
   text-decoration: none;
@@ -81,6 +89,7 @@
   transition: .25s linear;
 }
 
+.card:hover .card__text_span,
 .card:hover .card__text_link {
   color: #061b2c;
 }

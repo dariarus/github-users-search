@@ -9,7 +9,7 @@ import {UserCard} from '../user-card/user-card';
 import {Pagination} from '../pagination-page/pagination';
 import {Popup} from '../popup/popup';
 import {getPopupUserData} from '../../services/actions/users';
-import {popupActions} from '../../services/store-slices/popup';
+import {popupActions, popupSlice} from '../../services/store-slices/popup';
 
 function App() {
   const {
@@ -32,7 +32,7 @@ function App() {
                 key={ind}
                 avatarSrc={user.avatar_url}
                 login={user.login}
-                repoNumber={userReposCountState.reposCount[user.login]}
+                type={user.type}
                 profileUrl={user.html_url}
                 onClickCard={() => {
                   dispatch(popupActions.onOpenPopup());
@@ -55,6 +55,7 @@ function App() {
                profileUrl={popupState.profileUrl}
                username={popupState.username}
                userInfo={popupState.userInfo}
+               reposCount={popupState.reposCount}
                followers={popupState.followers}
                following={popupState.following}
                onClosePopup={() => {
