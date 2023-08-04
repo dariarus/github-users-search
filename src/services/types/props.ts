@@ -6,6 +6,15 @@ export type TButton = {
   onClick?: () => void
 }
 
+export type TSearchForm = {
+  onCleanSearchOption: () => void
+}
+
+export type TSearchResults = {
+  searchOptionValue: string,
+  onChangeOptionValue: (e: ChangeEvent<HTMLInputElement>) => void
+}
+
 export type TRadioButton = {
   label: string,
   value: string,

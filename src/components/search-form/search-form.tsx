@@ -9,18 +9,16 @@ import {searchValueActions} from '../../services/store-slices/search-value';
 import {getUsersList} from '../../services/actions/users';
 
 import {useAppDispatch} from '../../services/types/hooks';
+import {TSearchForm} from '../../services/types/props';
 
-export const SearchForm: FunctionComponent<{onCleanSearchOption: () => void}> = (props) => {
+export const SearchForm: FunctionComponent<TSearchForm> = (props) => {
   const [searchValue, setSearchValue] = useState<string>('');
-
 
   const dispatch = useAppDispatch();
 
   const handleSetSearchValue = useCallback((value: string) => {
     dispatch(searchValueActions.setSearchValue(value));
   }, [dispatch])
-
-
 
   return (
     <section>

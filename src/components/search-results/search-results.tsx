@@ -4,16 +4,15 @@ import searchResultsStyles from './search-results.module.css';
 import appStyles from '../app/app.module.css';
 
 import {RadioButton} from '../radio-button/radio-button';
-import {SearchOptions} from '../../services/types/props';
 import {getPopupUserData, getUsersList, getUsersListSorted} from '../../services/actions/users';
-import {useAppDispatch, useSelector} from '../../services/types/hooks';
 import {UserCard} from '../user-card/user-card';
+
 import {popupActions} from '../../services/store-slices/popup';
 
-export const SearchResults: FunctionComponent<{
-  searchOptionValue: string,
-  onChangeOptionValue: (e: ChangeEvent<HTMLInputElement>) => void
-}> = (props) => {
+import {useAppDispatch, useSelector} from '../../services/types/hooks';
+import {SearchOptions, TSearchResults} from '../../services/types/props';
+
+export const SearchResults: FunctionComponent<TSearchResults> = (props) => {
   const {usersListState, searchValueState} = useSelector(state => state);
 
   const dispatch = useAppDispatch();
