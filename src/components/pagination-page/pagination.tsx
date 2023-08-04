@@ -1,4 +1,4 @@
-import React, {FunctionComponent, MouseEvent} from 'react';
+import {FunctionComponent, MouseEvent} from 'react';
 
 import paginationPageButtonStyles from './pagination.module.css';
 
@@ -57,7 +57,7 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
         </button>
       </li>
       {
-        paginationRange?.map(pageNumber => {
+        paginationRange?.map((pageNumber, ind) => {
           if (pageNumber === '...') {
             return (
               <li>
@@ -66,7 +66,7 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
             )
           } else {
             return (
-              <li>
+              <li key={ind}>
                 <button type="submit"
                         className={pageNumber === currentPage
                           ? `${paginationPageButtonStyles.item} ${paginationPageButtonStyles['item_selected']}`

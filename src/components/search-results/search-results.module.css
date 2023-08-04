@@ -1,0 +1,47 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto 0;
+}
+
+.form {
+  display: flex;
+  align-items: flex-start;
+  margin: 20px auto 40px;
+  width: 1000px;
+ }
+
+.form__text {
+  align-self: flex-start;
+  margin: 0;
+  color: #fff;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 21px;
+}
+
+.form__text_secondary {
+  align-self: center;
+  margin-top: 40px;
+  font-size: 22px;
+  line-height: 24px;
+  opacity: 30%;
+}
+
+.form__radio-buttons-wrap {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.users-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px 0;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}

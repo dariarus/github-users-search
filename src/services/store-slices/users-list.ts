@@ -12,7 +12,7 @@ export const usersListSlice = createSlice({
     hasError: false,
     error: {},
     searchingValue: '',
-    totalResults: 0,
+    totalResults: null,
     usersList: []
   } as IUsersListSliceState,
   reducers: {

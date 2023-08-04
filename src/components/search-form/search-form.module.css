@@ -1,38 +1,10 @@
 .form {
   display: flex;
-  margin: auto;
-  width: 1000px;
-}
-
-.form_search {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.form_choose {
-  margin: 20px auto 40px;
-  align-items: flex-start;
-}
-
-.form__heading {
-  align-self: flex-start;
-  margin: 40px 0 0;
-  color: #fff;
-  font-family: 'Inter', 'Arial', sans-serif;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 21px;
-}
-
-.form_choose > .form__heading {
-  margin: 0;
-}
-
-.form__radio-buttons-wrap {
-  display: flex;
-  align-items: center;
-  margin-left: 15px;
+  margin: auto;
+  width: 1000px;
 }
 
 .input {

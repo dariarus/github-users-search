@@ -37,9 +37,7 @@ export interface IPopupActions {
 }
 
 export interface IRadioButtonsActions {
-  setAscendingSearchIsChecked: ActionCreatorWithoutPayload<string>,
-  setDescendingSearchIsChecked: ActionCreatorWithoutPayload<string>,
-  setUnsortedSearchIsChecked: ActionCreatorWithoutPayload<string>,
+  cleanState: ActionCreatorWithoutPayload<string>
 }
 
 type TUsersListActions = IUsersListActions

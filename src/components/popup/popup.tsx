@@ -1,4 +1,4 @@
-import React, {FunctionComponent, useCallback, useEffect} from 'react';
+import {FunctionComponent, useCallback, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 import popupStyles from './popup.module.css';

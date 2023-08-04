@@ -1,49 +1,38 @@
-import appStyles from './app.module.css';
+import {ChangeEvent, useState} from 'react';
 
-import {useAppDispatch, useSelector} from '../../services/types/hooks';
+import appStyles from './app.module.css';
 
 import {itemsCountPerPage, siblingPageCountInView} from '../../utils/constants';
 
 import {SearchForm} from '../search-form/search-form';
-import {UserCard} from '../user-card/user-card';
 import {Pagination} from '../pagination-page/pagination';
 import {Popup} from '../popup/popup';
-import {getPopupUserData} from '../../services/actions/users';
-import {popupActions, popupSlice} from '../../services/store-slices/popup';
+import {SearchResults} from '../search-results/search-results';
+
+import {popupActions} from '../../services/store-slices/popup';
+
+import {useAppDispatch, useSelector} from '../../services/types/hooks';
+import {SearchOptions} from '../../services/types/props';
 
 function App() {
   const {
-    usersListState,
-    userReposCountState,
     paginationState,
     popupState
   } = useSelector(state => state);
+  const [searchOptionValue, setSearchOptionValue] = useState<string>(SearchOptions.UNSORTED);
+
+  const handleRadioButtonChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchOptionValue(e.target.value);
+  }
 
   const dispatch = useAppDispatch();
 
   return (
     <main className={appStyles.main}>
-      <SearchForm/>
-      <ul className={appStyles['users-list']}>
-        {
-          usersListState.usersList.map((user, ind) => {
-            return (
-              <UserCard
-                key={ind}
-                avatarSrc={user.avatar_url}
-                login={user.login}
-                type={user.type}
-                profileUrl={user.html_url}
-                onClickCard={() => {
-                  dispatch(popupActions.onOpenPopup());
-                  dispatch(getPopupUserData(user.login));
-                  document.body.classList.add(appStyles.bodyOverlay);
-                }}
-              />
-            )
-          })
-        }
-      </ul>
+      <SearchForm onCleanSearchOption={() => {
+        setSearchOptionValue(SearchOptions.UNSORTED)
+      }}/>
+      <SearchResults searchOptionValue={searchOptionValue} onChangeOptionValue={handleRadioButtonChange}/>
       <Pagination totalResults={paginationState.totalResults}
                   currentPage={paginationState.currentPage}
                   siblingCount={siblingPageCountInView}

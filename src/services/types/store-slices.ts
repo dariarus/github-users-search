@@ -6,7 +6,7 @@ export interface IUsersListSliceState {
   hasError: boolean,
   error: TErrorState,
   searchingValue: string,
-  totalResults: number,
+  totalResults: number | null,
   usersList: ReadonlyArray<TUsersListData>
 }
 
@@ -42,7 +42,5 @@ export interface IPopup {
 }
 
 export interface IRadioButtons {
-  ascendingSearchIsChecked: boolean,
-  descendingSearchIsChecked: boolean,
-  unsortedSearchIsChecked: boolean
+  searchOption: string
 }

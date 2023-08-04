@@ -1,52 +1,30 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {IRadioButtons} from '../types/store-slices';
 import {IRadioButtonsActions} from '../types/actions';
+import {SearchOptions} from '../types/props';
+
+const getInitialState = (): IRadioButtons => {
+  return {
+    searchOption: SearchOptions.UNSORTED
+  }
+}
 
 export const radioButtonsSlice = createSlice({
   name: 'radioButtons',
-  initialState: {
-    ascendingSearchIsChecked: false,
-    descendingSearchIsChecked: false,
-    unsortedSearchIsChecked: true
-  } as IRadioButtons,
+  initialState: getInitialState(),
   reducers: {
-    setAscendingSearchIsChecked: (state) => {
-      return {
-        ...state,
-        ascendingSearchIsChecked: true,
-        descendingSearchIsChecked: false,
-        unsortedSearchIsChecked: false
-      }
-    },
-    setDescendingSearchIsChecked: (state) => {
-      return {
-        ...state,
-        ascendingSearchIsChecked: false,
-        descendingSearchIsChecked: true,
-        unsortedSearchIsChecked: false
-      }
-    },
-    setUnsortedSearchIsChecked: (state) => {
-      return {
-        ...state,
-        ascendingSearchIsChecked: false,
-        descendingSearchIsChecked: false,
-        unsortedSearchIsChecked: true
-      }
-    },
+    cleanState: () => {
+      return getInitialState();
+    }
   }
 })
 
 export default radioButtonsSlice.reducer
 
 const {
-  setAscendingSearchIsChecked,
-  setDescendingSearchIsChecked,
-  setUnsortedSearchIsChecked,
+  cleanState
 } = radioButtonsSlice.actions
 
 export const radioButtonsActions: IRadioButtonsActions = {
-  setAscendingSearchIsChecked: setAscendingSearchIsChecked,
-  setDescendingSearchIsChecked: setDescendingSearchIsChecked,
-  setUnsortedSearchIsChecked: setUnsortedSearchIsChecked
+  cleanState: cleanState,
 }

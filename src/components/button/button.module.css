@@ -21,9 +21,10 @@
 
 .button:disabled {
   opacity: 30%;
+  cursor: unset;
 }
 
-.button_search:hover,
+.button_search:not([disabled]):hover,
 .button_search:active {
   background-color: #02111d;
 }

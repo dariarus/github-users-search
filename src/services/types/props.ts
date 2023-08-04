@@ -2,7 +2,7 @@ import {ChangeEvent} from 'react';
 
 export type TButton = {
   buttonName: string,
-  buttonType: string,
+  isDisabled: boolean,
   onClick?: () => void
 }
 
@@ -41,4 +41,10 @@ export type TPagination = {
   currentPage: number,
   siblingCount: number, // сколько кнопок с номерами страниц отрисовывать справа и слева от кнопки текущей страницы
   itemsPerPage: number
+}
+
+export enum SearchOptions {
+  ASCENDING = 'ascendingSearch',
+  DESCENDING = 'descendingSearch',
+  UNSORTED = 'unsortedSearch'
 }
