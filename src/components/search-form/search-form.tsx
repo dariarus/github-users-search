@@ -1,17 +1,18 @@
 import React, {ChangeEvent, FormEvent, FunctionComponent, useCallback, useState} from 'react';
 
 import formStyles from './search-form.module.css';
+
 import {RadioButton} from '../radio-button/radio-button';
 import {Button} from '../button/button';
-import {getUsersList} from '../../services/actions/users';
+
+import {getUsersList, getUsersListSorted} from '../../services/actions/users';
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
-import {searchValueActions} from '../../services/state-slices/search-value';
+import {searchValueActions} from '../../services/store-slices/search-value';
 
 export const SearchForm: FunctionComponent = () => {
-  const [checked, setChecked] = useState(true);
-
-  const {usersListState} = useSelector(state => state);
+  const {usersListState, searchValueState} = useSelector(state => state);
   const [searchValue, setSearchValue] = useState<string>('');
+  const [searchOptionValue, setSearchOptionValue] = useState<string>('unsortedSearch');
 
   const dispatch = useAppDispatch();
 
@@ -19,11 +20,16 @@ export const SearchForm: FunctionComponent = () => {
     dispatch(searchValueActions.setSearchValue(value));
   }, [dispatch])
 
+  const handleRadioButtonChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchOptionValue(e.target.value);
+  }
+
   return (
     <>
       <form className={`${formStyles.form} ${formStyles['form_search']}`}
             onSubmit={(e: FormEvent<HTMLFormElement>) => {
               e.preventDefault();
+              setSearchOptionValue('unsortedSearch');
               dispatch(getUsersList(searchValue, 1));
             }}>
         <label htmlFor="search" className={formStyles['input__label']}>Поиск по пользователям GitHub</label>
@@ -44,15 +50,27 @@ export const SearchForm: FunctionComponent = () => {
       <form className={`${formStyles.form} ${formStyles['form_choose']}`}>
         <p className={formStyles['form__heading']}>Сортировать пользователей по количеству репозиториев:</p>
         <div className={formStyles['form__radio-buttons-wrap']}>
-          <RadioButton label="по возрастанию" checked={checked} onClickRadio={() => {
-            setChecked(!checked)
-          }}/>
-          <RadioButton label="по убыванию" checked={checked} onClickRadio={() => {
-            setChecked(!checked)
-          }}/>
-          <RadioButton label="не сортировать" checked={checked} onClickRadio={() => {
-            setChecked(!checked)
-          }}/>
+          <RadioButton label="по возрастанию"
+                       value="ascendingSearch"
+                       checked={searchOptionValue === "ascendingSearch"}
+                       onClickRadio={(e: ChangeEvent<HTMLInputElement>) => {
+                         handleRadioButtonChange(e);
+                         dispatch(getUsersListSorted(searchValueState.searchValue, 'asc', 1))
+                       }}/>
+          <RadioButton label="по убыванию"
+                       value="descendingSearch"
+                       checked={searchOptionValue === "descendingSearch"}
+                       onClickRadio={(e: ChangeEvent<HTMLInputElement>) => {
+                         handleRadioButtonChange(e);
+                         dispatch(getUsersListSorted(searchValueState.searchValue, 'desc', 1))
+                       }}/>
+          <RadioButton label="не сортировать"
+                       value="unsortedSearch"
+                       checked={searchOptionValue === "unsortedSearch"}
+                       onClickRadio={(e: ChangeEvent<HTMLInputElement>) => {
+                         handleRadioButtonChange(e);
+                         dispatch(getUsersList(searchValueState.searchValue, 1))
+                       }}/>
         </div>
       </form>
     </>

@@ -1,3 +1,5 @@
+import {ChangeEvent} from 'react';
+
 export type TButton = {
   buttonName: string,
   buttonType: string,
@@ -6,8 +8,9 @@ export type TButton = {
 
 export type TRadioButton = {
   label: string,
+  value: string,
   checked: boolean,
-  onClickRadio: () => void
+  onClickRadio: (event: ChangeEvent<HTMLInputElement>) => void
 }
 
 export type TUserCard = {

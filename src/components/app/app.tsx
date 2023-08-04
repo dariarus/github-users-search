@@ -1,5 +1,3 @@
-import React from 'react';
-
 import appStyles from './app.module.css';
 
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
@@ -11,14 +9,13 @@ import {UserCard} from '../user-card/user-card';
 import {Pagination} from '../pagination-page/pagination';
 import {Popup} from '../popup/popup';
 import {getPopupUserData} from '../../services/actions/users';
-import {popupActions} from '../../services/state-slices/popup';
+import {popupActions} from '../../services/store-slices/popup';
 
 function App() {
   const {
     usersListState,
     userReposCountState,
     paginationState,
-    searchValueState,
     popupState
   } = useSelector(state => state);
 

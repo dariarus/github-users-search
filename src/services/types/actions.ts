@@ -36,6 +36,12 @@ export interface IPopupActions {
   onClosePopup: ActionCreatorWithoutPayload<string>,
 }
 
+export interface IRadioButtonsActions {
+  setAscendingSearchIsChecked: ActionCreatorWithoutPayload<string>,
+  setDescendingSearchIsChecked: ActionCreatorWithoutPayload<string>,
+  setUnsortedSearchIsChecked: ActionCreatorWithoutPayload<string>,
+}
+
 type TUsersListActions = IUsersListActions
 
 type TUserReposCountActions = IUserReposCountActions
@@ -46,9 +52,12 @@ type TSearchValueActions = ISearchValueActions
 
 type TPopupActions = IPopupActions
 
+type TRadioButtonsActions = IRadioButtonsActions
+
 export type TApplicationActions =
   TUsersListActions
   | TUserReposCountActions
   | TPaginationActions
   | TSearchValueActions
   | TPopupActions
+  | TRadioButtonsActions

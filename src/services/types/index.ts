@@ -1,7 +1,7 @@
 import {Action, AnyAction} from '@reduxjs/toolkit';
 import {ThunkDispatch, ThunkAction} from 'redux-thunk';
 
-import {rootReducer} from '../state-slices';
+import {rootReducer} from '../store-slices';
 import {TApplicationActions} from './actions';
 
 export type RootState = ReturnType<typeof rootReducer>;

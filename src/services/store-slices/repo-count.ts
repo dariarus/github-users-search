@@ -49,7 +49,7 @@ export const userReposCountSlice = createSlice({
 
 export default userReposCountSlice.reducer
 
-export const {
+const {
   getUserReposCountInit,
   getUserReposCountSuccess,
   getUserReposCount,

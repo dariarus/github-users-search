@@ -39,3 +39,9 @@ export interface IPopup {
   followers: number,
   following: number
 }
+
+export interface IRadioButtons {
+  ascendingSearchIsChecked: boolean,
+  descendingSearchIsChecked: boolean,
+  unsortedSearchIsChecked: boolean
+}

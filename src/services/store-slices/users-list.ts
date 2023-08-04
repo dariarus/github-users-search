@@ -45,7 +45,7 @@ export const usersListSlice = createSlice({
 
 export default usersListSlice.reducer
 
-export const {
+const {
   getUsersListSuccess,
   getUsersList,
   getUsersListFailed

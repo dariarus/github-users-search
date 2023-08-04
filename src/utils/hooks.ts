@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 import {range} from './functions';
 import {TUsePagination, useAppDispatch} from '../services/types/hooks';
-import {paginationActions} from '../services/state-slices/pagination';
+import {paginationActions} from '../services/store-slices/pagination';
 
 export const usePagination = (args: TUsePagination) => {
   const {totalResults, siblingCount, currentPage, itemsPerPage} = args;

@@ -26,7 +26,7 @@ export const searchValueSlice = createSlice({
 
 export default searchValueSlice.reducer
 
-export const {
+const {
   setSearchValue,
   clearSearchValueState
 } = searchValueSlice.actions
