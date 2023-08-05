@@ -5,7 +5,6 @@ export interface IUsersListSliceState {
   isLoading: boolean,
   hasError: boolean,
   error: TErrorState,
-  searchingValue: string,
   totalResults: number | null,
   usersList: ReadonlyArray<TUsersListData>
 }
