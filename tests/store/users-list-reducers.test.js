@@ -1,4 +1,4 @@
-import usersListReducers, {usersListActions} from '../src/services/store-slices/users-list';
+import usersListReducers, {usersListActions} from '../../src/services/store-slices/users-list';
 
 describe('users-list reducers', () => {
   it('should handle initial state', () => {

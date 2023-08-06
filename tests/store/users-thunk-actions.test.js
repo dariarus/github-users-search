@@ -2,7 +2,7 @@ import fetchMock from 'jest-fetch-mock'
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import {getUsersList, getUsersListSorted, getPopupUserData} from '../src/services/actions/users';
+import {getUsersList, getUsersListSorted, getPopupUserData} from '../../src/services/actions/users';
 
 require("jest-fetch-mock").enableMocks();
 

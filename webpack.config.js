@@ -27,60 +27,35 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
-        exclude: /node_modules/,
-        use: [
-          'babel-loader',
-        ],
-      },
-      {
-        test: [/\.wexbim$/, /\.docx$/, /\.csv$/, /\.mp4$/, /\.xlsx$/, /\.doc$/, /\.avi$/, /\.webm$/, /\.mov$/, /\.mp3$/, /\.pdf$/],
-        use: [
-          'file-loader',
-        ],
-        type: 'javascript/auto',
-      },
-      {
-        test: /\.(png|jpg)$/,
-        dependency: { not: ['url'] },
-        use: [
-          'url-loader?limit=200000',
-        ],
-        type: 'javascript/auto',
-      },
-      {
-        test: /\.(gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              query: {
-                name: 'assets/[name].[ext]',
-              },
-            },
-          },
-        ],
-        type: 'javascript/auto',
-      },
-      {
-        test: /\.jsx\.html$/,
-        exclude: /node_modules/,
-        use: [
-          'babel!react-pure-html-component',
-        ],
+        test: /\.jsx?$/,
+        exclude: ['node_modules'],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
-        use: [
-          'css-loader',
-        ],
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.gif$/,
+        type: 'asset/inline',
+      },
+      {
+        test: /\.(ttf|eot|svg)$/,
+        type: 'asset/resource',
       },
     ],
   },
   resolve: {
+    alias: {
+      config$: './configs/app-config.js',
+      react: './vendor/react-master',
+    },
     extensions: ['.js', '.jsx', '.jsx.html'],
     modules: [
-      path.join(__dirname, 'node_modules'),
+      'node_modules',
+      'bower_components',
+      'shared',
+      '/shared/vendor/modules',
     ],
   },
   plugins: [],
