@@ -20,7 +20,6 @@ export interface IPaginationActions {
   getDataPerPageSuccess: ActionCreatorWithPayload<{ total_count: number, currentPage: number }>,
   getDataPerPage: ActionCreatorWithoutPayload<string>,
   getDataPerPageFailed: ActionCreatorWithPayload<TErrorState>,
-  cleanPagination: ActionCreatorWithoutPayload<string>
 }
 
 export interface ISearchValueActions {

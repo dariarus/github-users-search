@@ -19,19 +19,27 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
+    "@babel/preset-react": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^14.0.0",
+    "babel-jest": "^29.6.2",
     "eslint": "8.22.0",
     "fetch-mock": "^9.11.0",
-    "jest": "^27.5.1",
+    "fetch-mock-jest": "^1.5.1",
+    "jest-fetch-mock": "^3.0.3",
+    "node-fetch": "^3.3.2",
     "react-test-renderer": "^18.2.0",
-    "redux-mock-store": "^1.5.4"
+    "redux-mock-store": "^1.5.4",
+    "ts-jest": "^29.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

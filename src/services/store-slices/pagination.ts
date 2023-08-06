@@ -43,9 +43,6 @@ export const paginationSlice = createSlice({
         error: action.payload
       }
     },
-    cleanPagination: () => {
-      return getInitialState();
-    }
   }
 })
 
@@ -55,12 +52,10 @@ const {
   getDataPerPageSuccess,
   getDataPerPage,
   getDataPerPageFailed,
-  cleanPagination
 } = paginationSlice.actions
 
 export const paginationActions: IPaginationActions = {
   getDataPerPageSuccess: getDataPerPageSuccess,
   getDataPerPage: getDataPerPage,
   getDataPerPageFailed: getDataPerPageFailed,
-  cleanPagination: cleanPagination
 }

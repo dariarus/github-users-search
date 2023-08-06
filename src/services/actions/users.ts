@@ -1,7 +1,6 @@
 import {getResponseData} from './json-verification';
 
 import {usersListActions} from '../store-slices/users-list';
-import {userReposCountActions} from '../store-slices/repo-count';
 import {paginationActions} from '../store-slices/pagination';
 import {popupActions} from '../store-slices/popup';
 
@@ -9,33 +8,6 @@ import {gitHubRestApiSearchUrl, gitHubRestApiUrl, itemsCountPerPage} from '../..
 
 import {AppDispatch, AppThunk} from '../types';
 import {TPopupData, TUsersListData} from '../types/response-data';
-
-export const getUserReposCount = (login: string) => {
-  return function (dispatch: AppDispatch) {
-
-    dispatch(userReposCountActions.getUserReposCount());
-
-    return fetch(`${gitHubRestApiSearchUrl}/repositories?q=user:${login}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github+json',
-        'Authorization': 'Bearer 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'
-      }
-    })
-      .then((res) => {
-        return getResponseData<{ total_count: number }>(res)
-      })
-      .then((res) => {
-        dispatch(userReposCountActions.getUserReposCountSuccess({login: login, total_count: res.total_count}))
-      })
-      .catch((err) =>  {
-        console.log(err.message);
-        dispatch(userReposCountActions.getUserReposCountSuccess({login: login, total_count: 0}))
-        dispatch(userReposCountActions.getUserReposCountFailed({message: err.message}));
-      });
-  }
-}
 
 export const getUsersList = (login: string, pageNumber: number): AppThunk => {
   return function (dispatch: AppDispatch) {
@@ -55,7 +27,6 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
       })
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
-
         dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}))
       })
       .catch((err) => {
@@ -83,10 +54,6 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
       })
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
-        const logins = res.items.map(item => item.login);
-        logins.forEach((login) => {
-          return dispatch(getUserReposCount(login))
-        });
         dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}))
       })
       .catch((err) => {
