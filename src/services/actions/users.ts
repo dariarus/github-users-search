@@ -14,7 +14,7 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
 
     dispatch(usersListActions.getUsersList());
 
-    fetch(`${gitHubRestApiSearchUrl}/users?q=${login}+in:login&per_page=${itemsCountPerPage}&page=${pageNumber}`, {
+    return fetch(`${gitHubRestApiSearchUrl}/users?q=${login}+in:login&per_page=${itemsCountPerPage}&page=${pageNumber}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -28,6 +28,8 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
         dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}))
+        // Возвращаем результат для тестирования
+        return res;
       })
       .catch((err) => {
         console.log(err.message)
@@ -41,7 +43,7 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
 
     dispatch(usersListActions.getUsersList());
 
-    fetch(`${gitHubRestApiSearchUrl}/users?q=${login}+in:login&sort=repositories&order=${order}&per_page=${itemsCountPerPage}&page=${pageNumber}`, {
+    return fetch(`${gitHubRestApiSearchUrl}/users?q=${login}+in:login&sort=repositories&order=${order}&per_page=${itemsCountPerPage}&page=${pageNumber}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +56,8 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
       })
       .then((res) => {
         dispatch(usersListActions.getUsersListSuccess(res));
-        dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}))
+        dispatch(paginationActions.getDataPerPageSuccess({total_count: res.total_count, currentPage: pageNumber}));
+        return res;
       })
       .catch((err) => {
         console.log(err.message)
@@ -63,7 +66,7 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
   }
 }
 
-export const getPopupUserData = (login: string) => {
+export const getPopupUserData = (login: string): AppThunk => {
   return function (dispatch: AppDispatch) {
 
     dispatch(popupActions.getPopupData());
@@ -80,7 +83,8 @@ export const getPopupUserData = (login: string) => {
         return getResponseData<TPopupData>(res)
       })
       .then((res) => {
-        dispatch(popupActions.getPopupDataSuccess(res))
+        dispatch(popupActions.getPopupDataSuccess(res));
+        return res;
       })
       .catch((err) =>  {
         console.log(err.message);
