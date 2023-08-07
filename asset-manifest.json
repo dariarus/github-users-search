@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/dariarus/github-users-search/static/css/main.dc2b24d2.css",
+    "main.js": "/dariarus/github-users-search/static/js/main.cf621fcc.js",
+    "static/js/787.f5711339.chunk.js": "/dariarus/github-users-search/static/js/787.f5711339.chunk.js",
+    "static/media/Inter-Regular.woff": "/dariarus/github-users-search/static/media/Inter-Regular.750b51a29f4c03e0c2db.woff",
+    "static/media/Inter-Regular.woff2": "/dariarus/github-users-search/static/media/Inter-Regular.e1e044bb56329240543c.woff2",
+    "index.html": "/dariarus/github-users-search/index.html",
+    "static/media/cross.svg": "/dariarus/github-users-search/static/media/cross.e3d0e3674583be687c4c.svg",
+    "main.dc2b24d2.css.map": "/dariarus/github-users-search/static/css/main.dc2b24d2.css.map",
+    "main.cf621fcc.js.map": "/dariarus/github-users-search/static/js/main.cf621fcc.js.map",
+    "787.f5711339.chunk.js.map": "/dariarus/github-users-search/static/js/787.f5711339.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc2b24d2.css",
+    "static/js/main.cf621fcc.js"
+  ]
+}
