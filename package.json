@@ -1,6 +1,7 @@
 {
   "name": "github-users-search",
   "version": "0.1.0",
+  "homepage": "https://dariarus.github.io/github-users-search/",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^13.5.0",
@@ -30,6 +31,7 @@
     "eslint": "8.22.0",
     "fetch-mock": "^9.11.0",
     "fetch-mock-jest": "^1.5.1",
+    "gh-pages": "^5.0.0",
     "install": "^0.13.0",
     "jest": "^29.6.2",
     "jest-environment-jsdom": "^29.6.2",
@@ -46,6 +48,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

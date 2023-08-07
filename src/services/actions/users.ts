@@ -18,8 +18,7 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github+json',
-        'Authorization': 'Bearer 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'
+        'Accept': 'application/vnd.github+json'
       }
     })
       .then((res) => {
@@ -47,8 +46,7 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github+json',
-        'Authorization': 'Bearer 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'
+        'Accept': 'application/vnd.github+json'
       }
     })
       .then((res) => {
@@ -75,8 +73,7 @@ export const getPopupUserData = (login: string): AppThunk => {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/vnd.github+json',
-        'Authorization': 'Bearer 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'
+        'Accept': 'application/vnd.github+json'
       }
     })
       .then((res) => {
