@@ -3,6 +3,6 @@
 ### *Описание и функциональность*: Интерфейс поиска пользователей сайта GitHub. Поиск производится по логину, результаты можно отсортировать по возрастанию или по убыванию. Нажатие на карточку пользователя открывает попап с подробной информацией. Список пользователей разбит на страницы. На одной странице помещается 20 пользователей.
 ### *Используемые технологии*: React, TSX, Redux Toolkit, flexbox, JavaScript, TypeScript, Webpack, GitHub REST API, Jest
 
-### *Ссылка на проектный сайт на GitHub Pages*: [Поиск пользователей GitHub]([https://dariarus.github.io/react-](https://dariarus.github.io/github-users-search/)
+### *Ссылка на проектный сайт на GitHub Pages*: [Поиск пользователей GitHub](https://dariarus.github.io/github-users-search/)
 
 ### *В разработке*: адаптив,
