@@ -7,7 +7,7 @@ import {TRadioButton} from '../../services/types/props';
 export const RadioButton: FunctionComponent<TRadioButton> = (props) => {
 
   return (
-    <>
+    <div className={radioButtonStyles.radio}>
       <input type="radio"
              id={props.value}
              name="radio"
@@ -17,6 +17,6 @@ export const RadioButton: FunctionComponent<TRadioButton> = (props) => {
              onChange={props.onClickRadio}
       />
       <label htmlFor={props.value} className={radioButtonStyles['input__label']}>{props.label}</label>
-    </>
+    </div>
   )
 }

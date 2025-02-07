@@ -34,3 +34,9 @@
     width: 300px;
   }
 }
+
+@media screen and (max-width: 330px) {
+  .button_search {
+    width: 100%;
+  }
+}
