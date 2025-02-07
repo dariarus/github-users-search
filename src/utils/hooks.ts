@@ -1,17 +1,15 @@
 import {useMemo} from 'react';
 import {range} from './functions';
-import {TUsePagination, useAppDispatch} from '../services/types/hooks';
-import {paginationActions} from '../services/store-slices/pagination';
+import {TUsePagination} from '../services/types/hooks';
 
 export const usePagination = (args: TUsePagination) => {
   const {totalResults, siblingCount, currentPage, itemsPerPage} = args;
-  const dispatch = useAppDispatch();
 
   return useMemo(() => {
     // Округление до следующего целого значения гарантирует запасную страницу для вывода последних данных
     const totalPageCount = Math.ceil(totalResults / itemsPerPage);
     // Кол-во страниц определяется исходя из siblingCount + firstPage + lastPage + currentPage + 2 многоточия (2 x '...')
-    const totalPageNumbers = siblingCount + 5;
+    const totalPageNumbers = siblingCount + 3;
 
     // dispatch(paginationActions.cleanPagination());
 
@@ -39,6 +37,7 @@ export const usePagination = (args: TUsePagination) => {
     /* Вариант 2. Слева многоточия нет, но есть справа */
     if (!shouldShowLeftDots && shouldShowRightDots) {
       let leftItemCount = 3 + 2 * siblingCount;
+      // let leftItemCount = siblingCount;
       let leftRange = range(1, leftItemCount);
 
       return [...leftRange, '...', totalPageCount];

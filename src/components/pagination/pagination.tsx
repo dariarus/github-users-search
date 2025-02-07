@@ -16,7 +16,7 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
     itemsPerPage
   } = props;
 
-  const {searchValueState} = useSelector(state => state)
+  const {searchValueState} = useSelector(state => state);
 
   const dispatch = useAppDispatch();
 

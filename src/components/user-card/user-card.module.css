@@ -127,6 +127,10 @@
     flex-direction: column;
   }
 
+  .avatar {
+    margin-right: 20px;
+  }
+
   .card__text_heading {
     font-size: 20px;
     line-height: 22px;

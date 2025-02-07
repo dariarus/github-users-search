@@ -5,7 +5,7 @@ import appStyles from './app.module.css';
 import {itemsCountPerPage, siblingPageCountInView} from '../../utils/constants';
 
 import {SearchForm} from '../search-form/search-form';
-import {Pagination} from '../pagination-page/pagination';
+import {Pagination} from '../pagination/pagination';
 import {Popup} from '../popup/popup';
 import {SearchResults} from '../search-results/search-results';
 
