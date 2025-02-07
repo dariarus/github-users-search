@@ -27,6 +27,8 @@
   font-size: 22px;
   line-height: 24px;
   opacity: 30%;
+  text-align: center;
+  text-align-last: center;
 }
 
 .form__radio-buttons-wrap {
@@ -44,4 +46,20 @@
   margin: 0 auto;
   padding: 0;
   width: 100%;
+}
+
+@media screen and (max-width: 790px) {
+  .form__text_secondary {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .form__text_secondary {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 17px;
+  }
 }

@@ -104,3 +104,45 @@
   visibility: visible;
   transform: scaleX(1);
 }
+
+@media screen and (max-width: 760px) {
+  .card__text_heading {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .card__text_paragraph {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .card__text_span {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .card__text_heading {
+    font-size: 20px;
+    line-height: 22px;
+  }
+
+  .card__text_paragraph {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .card__text_span {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .card__text_link {
+    margin-top: 25px;
+  }
+}

@@ -22,7 +22,7 @@ export const SearchForm: FunctionComponent<TSearchForm> = (props) => {
 
   return (
     <section>
-      <form className={`${formStyles.form} ${formStyles['form_search']}`}
+      <form className={formStyles.form}
             onSubmit={(e: FormEvent<HTMLFormElement>) => {
               e.preventDefault();
               props.onCleanSearchOption();
