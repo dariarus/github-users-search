@@ -85,3 +85,27 @@
   color: #fff;
   opacity: 30%;
 }
+
+@media screen and (max-width: 790px) {
+  .popup__text_heading {
+    font-size: 30px;
+    line-height: 32px;
+  }
+
+  .popup__text_paragraph {
+    font-size: 15px;
+    line-height: 17px;
+  }
+
+  .popup__text_link {
+    font-size: 18px;
+    line-height: 20px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .popup {
+    min-width: 300px;
+    width: auto;
+  }
+}
