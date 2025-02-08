@@ -1,11 +1,11 @@
-import {FunctionComponent, MouseEvent, useEffect} from 'react';
+import {FunctionComponent, MouseEvent} from 'react';
 
 import paginationPageButtonStyles from './pagination.module.css';
 
 import {TPagination} from '../../services/types/props';
 import {usePagination} from '../../utils/hooks';
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
-import {getUsersList, getUsersListSorted} from '../../services/actions/users';
+import {getUsersListSorted} from '../../services/actions/users';
 
 
 export const Pagination: FunctionComponent<TPagination> = (props) => {
@@ -28,13 +28,6 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
   });
 
   let lastPage = 0;
-
-
-
-  useEffect(() => {
-    // console.log(searchValueState.order)
-  }, [])
-
 
   if (paginationRange) {
     // Если из данных получается меньше 2 страниц, компонент не будет отрисован

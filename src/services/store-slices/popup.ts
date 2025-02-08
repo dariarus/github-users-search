@@ -8,6 +8,7 @@ export const popupSlice = createSlice({
   name: 'popup',
   initialState: {
     isOpen: false,
+    type: 'default',
     login: '',
     profileUrl: '',
     username: null,
@@ -46,10 +47,11 @@ export const popupSlice = createSlice({
         error: action.payload
       }
     },
-    onOpenPopup: (state) => {
+    onOpenPopup: (state, action: PayloadAction<'default' | 'error'>) => {
       return {
         ...state,
-        isOpen: true
+        isOpen: true,
+        type: action.payload
       }
     },
     onClosePopup: (state) => {

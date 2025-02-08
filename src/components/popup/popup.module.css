@@ -41,12 +41,15 @@
 }
 
 .popup__text_heading {
-  align-self: center;
   margin-bottom: 10px;
   font-weight: 700;
   font-size: 40px;
   line-height: 42px;
   text-align: center;
+}
+
+.popup__text_centered {
+  align-self: center;
 }
 
 .popup__text_paragraph {
@@ -107,5 +110,12 @@
   .popup {
     min-width: 300px;
     width: auto;
+  }
+
+  .popup__cross-icon {
+    top: 15px;
+    right: 10px;
+    width: 15px;
+    height: 15px;
   }
 }

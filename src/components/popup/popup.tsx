@@ -30,61 +30,72 @@ export const Popup: FunctionComponent<TPopup> = (props) => {
           <div className={popupStyles.popup}>
             <button className={popupStyles['popup__cross-icon']} onClick={props.onClosePopup}>
             </button>
-            <h3 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_heading']}`}>{props.login}</h3>
-            <a href={props.profileUrl}
-               className={`${popupStyles['popup__text']} ${popupStyles['popup__text_link']}`}
-               target="_blank" rel="noreferrer">
-              Посмотреть на GitHub
-            </a>
-            <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
+            {
+              props.type === 'error'
+                ? <>
+                  <h3 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_heading']} ${popupStyles['popup__text_centered']}`}>Что-то пошло не
+                    так</h3>
+                  <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_centered']}`}>Попробуде
+                    перезагрузить страницу</p>
+                </>
+                : <>
+                  <h3 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_heading']} ${popupStyles['popup__text_centered']}`}>{props.login}</h3>
+                  <a href={props.profileUrl}
+                     className={`${popupStyles['popup__text']} ${popupStyles['popup__text_link']}`}
+                     target="_blank" rel="noreferrer">
+                    Посмотреть на GitHub
+                  </a>
+                  <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
               <span
                 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span']}`}>
                 Имя:&ensp;
               </span>
-              {
-                props.username !== null
-                  ? props.username
-                  : <span
-                    className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span-secondary']}`}>
+                    {
+                      props.username !== null
+                        ? props.username
+                        : <span
+                          className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span-secondary']}`}>
                     Пользователь не указал свое имя
                 </span>
-              }
-            </p>
-            <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
+                    }
+                  </p>
+                  <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
               <span
                 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span']}`}>
                 О пользователе:&ensp;
               </span>
-              {
-                props.userInfo !== null
-                  ? props.userInfo
-                  : <span
-                    className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span-secondary']}`}>
+                    {
+                      props.userInfo !== null
+                        ? props.userInfo
+                        : <span
+                          className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span-secondary']}`}>
                     Пользователь ничего не написал о себе
                 </span>
-              }
-            </p>
-            <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
+                    }
+                  </p>
+                  <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
               <span
                 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span']}`}>
                 Публичных репозиториев:&ensp;
               </span>
-              {props.reposCount}
-            </p>
-            <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
+                    {props.reposCount}
+                  </p>
+                  <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
               <span
                 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span']}`}>
                 Подписчики:&ensp;
               </span>
-              {props.followers}
-            </p>
-            <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
+                    {props.followers}
+                  </p>
+                  <p className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']}`}>
               <span
                 className={`${popupStyles['popup__text']} ${popupStyles['popup__text_paragraph']} ${popupStyles['popup__text_span']}`}>
                 Подписки:&ensp;
               </span>
-              {props.following}
-            </p>
+                    {props.following}
+                  </p>
+                </>
+            }
           </div>
         </>
       ), popupRoot

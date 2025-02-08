@@ -31,7 +31,7 @@ export interface IPopupActions {
   getPopupDataSuccess: ActionCreatorWithPayload<TPopupData>,
   getPopupData: ActionCreatorWithoutPayload<string>,
   getPopupDataFailed: ActionCreatorWithPayload<TErrorState>,
-  onOpenPopup: ActionCreatorWithoutPayload<string>,
+  onOpenPopup: ActionCreatorWithPayload<"default" | "error">,
   onClosePopup: ActionCreatorWithoutPayload<string>,
 }
 

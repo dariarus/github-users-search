@@ -61,7 +61,7 @@ export const SearchResults: FunctionComponent<TSearchResults> = (props) => {
                       type={user.type}
                       profileUrl={user.html_url}
                       onClickCard={() => {
-                        dispatch(popupActions.onOpenPopup());
+                        dispatch(popupActions.onOpenPopup("default"));
                         dispatch(getPopupUserData(user.login));
                         document.body.classList.add(appStyles.bodyOverlay);
                       }}

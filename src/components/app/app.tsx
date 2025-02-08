@@ -49,17 +49,28 @@ function App() {
       }
       {
         popupState.isOpen &&
-          <Popup login={popupState.login}
-                 profileUrl={popupState.profileUrl}
-                 username={popupState.username}
-                 userInfo={popupState.userInfo}
-                 reposCount={popupState.reposCount}
-                 followers={popupState.followers}
-                 following={popupState.following}
-                 onClosePopup={() => {
-                   dispatch(popupActions.onClosePopup());
-                   document.body.classList.remove(appStyles.bodyOverlay);
-                 }}/>
+          <>
+            {
+              popupState.type === "default"
+                ? <Popup type="default"
+                         login={popupState.login}
+                         profileUrl={popupState.profileUrl}
+                         username={popupState.username}
+                         userInfo={popupState.userInfo}
+                         reposCount={popupState.reposCount}
+                         followers={popupState.followers}
+                         following={popupState.following}
+                         onClosePopup={() => {
+                           dispatch(popupActions.onClosePopup());
+                           document.body.classList.remove(appStyles.bodyOverlay);
+                         }}/>
+                : <Popup type="error"
+                         onClosePopup={() => {
+                           dispatch(popupActions.onClosePopup());
+                           document.body.classList.remove(appStyles.bodyOverlay);
+                         }}/>
+            }
+          </>
       }
     </main>
   );

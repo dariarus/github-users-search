@@ -32,13 +32,14 @@ export interface ISearchValue {
 
 export interface IPopup {
   isOpen: boolean,
-  login: string,
-  profileUrl: string,
-  username: string | null,
-  userInfo: string | null,
-  reposCount: number,
-  followers: number,
-  following: number
+  type: "default" | "error",
+  login?: string,
+  profileUrl?: string,
+  username?: string | null,
+  userInfo?: string | null,
+  reposCount?: number,
+  followers?: number,
+  following?: number
 }
 
 export interface IRadioButtons {

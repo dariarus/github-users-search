@@ -31,8 +31,9 @@ export const getUsersList = (login: string, pageNumber: number): AppThunk => {
         return res;
       })
       .catch((err) => {
-        console.log(err.message)
-        dispatch(usersListActions.getUsersListFailed({message: err.message}))
+        console.log(err.message);
+        dispatch(usersListActions.getUsersListFailed({message: err.message}));
+        dispatch(popupActions.onOpenPopup("error"));
       });
   }
 }
@@ -59,8 +60,9 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
         return res;
       })
       .catch((err) => {
-        console.log(err.message)
-        dispatch(usersListActions.getUsersListFailed({message: err.message}))
+        console.log(err.message);
+        dispatch(usersListActions.getUsersListFailed({message: err.message}));
+        dispatch(popupActions.onOpenPopup("error"));
       });
   }
 }
@@ -87,6 +89,7 @@ export const getPopupUserData = (login: string): AppThunk => {
       .catch((err) =>  {
         console.log(err.message);
         dispatch(popupActions.getPopupDataFailed({message: err.message}));
+        dispatch(popupActions.onOpenPopup("error"));
       });
   }
 }
