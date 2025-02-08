@@ -14,9 +14,12 @@ import {popupActions} from '../../services/store-slices/popup';
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
 import {SearchOptions} from '../../services/types/props';
 import {searchValueActions} from "../../services/store-slices/search-value";
+import usersList from "../../services/store-slices/users-list";
+import {Preloader} from "../preloader/preloader";
 
 function App() {
   const {
+    usersListState,
     paginationState,
     popupState
   } = useSelector(state => state);
@@ -41,18 +44,22 @@ function App() {
                   itemsPerPage={itemsCountPerPage}
       />
       {
+        usersListState.isLoading
+        && <Preloader/>
+      }
+      {
         popupState.isOpen &&
-        <Popup login={popupState.login}
-               profileUrl={popupState.profileUrl}
-               username={popupState.username}
-               userInfo={popupState.userInfo}
-               reposCount={popupState.reposCount}
-               followers={popupState.followers}
-               following={popupState.following}
-               onClosePopup={() => {
-                 dispatch(popupActions.onClosePopup());
-                 document.body.classList.remove(appStyles.bodyOverlay);
-               }}/>
+          <Popup login={popupState.login}
+                 profileUrl={popupState.profileUrl}
+                 username={popupState.username}
+                 userInfo={popupState.userInfo}
+                 reposCount={popupState.reposCount}
+                 followers={popupState.followers}
+                 following={popupState.following}
+                 onClosePopup={() => {
+                   dispatch(popupActions.onClosePopup());
+                   document.body.classList.remove(appStyles.bodyOverlay);
+                 }}/>
       }
     </main>
   );
