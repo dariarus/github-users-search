@@ -12,12 +12,6 @@ export const userReposCountSlice = createSlice({
     reposCount: {},
   } as IUserReposCount,
   reducers: {
-    getUserReposCountInit: (state, action: PayloadAction<Array<string>>) => {
-      // if (action.payload) {
-      //   action.payload.forEach((login) => getUserReposCount(login))
-      // }
-      // return state
-    },
     getUserReposCountSuccess: (state, action: PayloadAction<{login: string, total_count:number}>) => {
       const reposCountsCopy = {...state.reposCount}
       reposCountsCopy[action.payload.login] = action.payload.total_count
@@ -50,14 +44,12 @@ export const userReposCountSlice = createSlice({
 export default userReposCountSlice.reducer
 
 const {
-  getUserReposCountInit,
   getUserReposCountSuccess,
   getUserReposCount,
   getUserReposCountFailed
 } = userReposCountSlice.actions
 
 export const userReposCountActions: IUserReposCountActions = {
-  getUserReposCountInit: getUserReposCountInit,
   getUserReposCountSuccess: getUserReposCountSuccess,
   getUserReposCount: getUserReposCount,
   getUserReposCountFailed: getUserReposCountFailed

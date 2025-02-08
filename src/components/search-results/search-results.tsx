@@ -11,6 +11,7 @@ import {popupActions} from '../../services/store-slices/popup';
 
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
 import {SearchOptions, TSearchResults} from '../../services/types/props';
+import {searchValueActions} from "../../services/store-slices/search-value";
 
 export const SearchResults: FunctionComponent<TSearchResults> = (props) => {
   const {usersListState, searchValueState} = useSelector(state => state);
@@ -30,7 +31,8 @@ export const SearchResults: FunctionComponent<TSearchResults> = (props) => {
                              checked={props.searchOptionValue === SearchOptions.ASCENDING}
                              onClickRadio={(e: ChangeEvent<HTMLInputElement>) => {
                                props.onChangeOptionValue(e);
-                               dispatch(getUsersListSorted(searchValueState.searchValue, 'asc', 1))
+                               dispatch(getUsersListSorted(searchValueState.searchValue, 'asc', 1));
+                               // dispatch(searchValueActions.setOrderState('asc'))
                              }}/>
                 <RadioButton label="по убыванию"
                              value="descendingSearch"

@@ -13,6 +13,7 @@ import {popupActions} from '../../services/store-slices/popup';
 
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
 import {SearchOptions} from '../../services/types/props';
+import {searchValueActions} from "../../services/store-slices/search-value";
 
 function App() {
   const {
@@ -21,11 +22,12 @@ function App() {
   } = useSelector(state => state);
   const [searchOptionValue, setSearchOptionValue] = useState<string>(SearchOptions.UNSORTED);
 
+  const dispatch = useAppDispatch();
+
   const handleRadioButtonChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchOptionValue(e.target.value);
+    dispatch(searchValueActions.setOrderState(e.target.value))
   }
-
-  const dispatch = useAppDispatch();
 
   return (
     <main className={appStyles.main}>

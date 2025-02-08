@@ -1,12 +1,13 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {TErrorState} from '../types/props';
-import {IPaginationActions, ISearchValueActions} from '../types/actions';
+import {SearchOptions} from '../types/props';
+import {ISearchValueActions} from '../types/actions';
 import {ISearchValue} from '../types/store-slices';
 
 export const searchValueSlice = createSlice({
   name: 'searchValue',
   initialState: {
-    searchValue: ''
+    searchValue: '',
+    order: SearchOptions.UNSORTED,
   } as ISearchValue,
   reducers: {
     setSearchValue: (state, action: PayloadAction<string>) => {
@@ -20,6 +21,12 @@ export const searchValueSlice = createSlice({
         ...state,
         searchValue: '',
       }
+    },
+    setOrder: (state, action: PayloadAction<string>) => {
+      return {
+        ...state,
+        order: action.payload
+      }
     }
   }
 })
@@ -28,10 +35,12 @@ export default searchValueSlice.reducer
 
 const {
   setSearchValue,
-  clearSearchValueState
+  clearSearchValueState,
+  setOrder
 } = searchValueSlice.actions
 
 export const searchValueActions: ISearchValueActions = {
   setSearchValue: setSearchValue,
   clearSearchValueState: clearSearchValueState,
+  setOrderState: setOrder,
 }

@@ -50,6 +50,7 @@ export const getUsersListSorted = (login: string, order: string, pageNumber: num
       }
     })
       .then((res) => {
+
         return getResponseData<{ total_count: number, items: ReadonlyArray<TUsersListData> }>(res)
       })
       .then((res) => {

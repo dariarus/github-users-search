@@ -1,11 +1,11 @@
-import {FunctionComponent, MouseEvent} from 'react';
+import {FunctionComponent, MouseEvent, useEffect} from 'react';
 
 import paginationPageButtonStyles from './pagination.module.css';
 
 import {TPagination} from '../../services/types/props';
 import {usePagination} from '../../utils/hooks';
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
-import {getUsersList} from '../../services/actions/users';
+import {getUsersList, getUsersListSorted} from '../../services/actions/users';
 
 
 export const Pagination: FunctionComponent<TPagination> = (props) => {
@@ -16,7 +16,7 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
     itemsPerPage
   } = props;
 
-  const {searchValueState} = useSelector(state => state);
+  const {searchValueState, } = useSelector(state => state);
 
   const dispatch = useAppDispatch();
 
@@ -29,6 +29,13 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
 
   let lastPage = 0;
 
+
+
+  useEffect(() => {
+    // console.log(searchValueState.order)
+  }, [])
+
+
   if (paginationRange) {
     // Если из данных получается меньше 2 страниц, компонент не будет отрисован
     if (currentPage === 0 || paginationRange.length < 2) {
@@ -38,11 +45,13 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
   }
 
   const onNext = () => {
-    dispatch(getUsersList(searchValueState.searchValue, currentPage + 1));
+    console.log('order: ', searchValueState.order)
+    dispatch(getUsersListSorted(searchValueState.searchValue, searchValueState.order, currentPage + 1));
   };
 
   const onPrevious = () => {
-    dispatch(getUsersList(searchValueState.searchValue, currentPage - 1));
+    console.log(searchValueState.order)
+    dispatch(getUsersListSorted(searchValueState.searchValue, searchValueState.order, currentPage - 1));
   };
 
   return (
@@ -73,7 +82,8 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
                           : `${paginationPageButtonStyles.item}`}
                         onClick={(e: MouseEvent<HTMLButtonElement>) => {
                           e.preventDefault();
-                          dispatch(getUsersList(searchValueState.searchValue, pageNumber as number))
+                          console.log('order: ', searchValueState.order)
+                          dispatch(getUsersListSorted(searchValueState.searchValue, searchValueState.order, pageNumber as number))
                         }}
                 >
                   {pageNumber}

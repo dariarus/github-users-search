@@ -12,7 +12,7 @@ export const usersListSlice = createSlice({
     hasError: false,
     error: {},
     totalResults: null,
-    usersList: []
+    usersList: [],
   } as IUsersListSliceState,
   reducers: {
     getUsersListSuccess: (state, action: PayloadAction<{total_count: number, items: ReadonlyArray<TUsersListData>}>) => {
