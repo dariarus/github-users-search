@@ -49,7 +49,7 @@ export type TErrorState = {
 export type TPagination = {
   totalResults: number,
   currentPage: number,
-  siblingCount: number, // сколько кнопок с номерами страниц отрисовывать справа и слева от кнопки текущей страницы
+  siblingCount: number,
   itemsPerPage: number
 }
 

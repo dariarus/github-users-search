@@ -34,7 +34,6 @@
   line-height: 17px;
 }
 
-/* Предотвратить изменение фона поля ввода при автозаполнении: */
 .input:-webkit-autofill,
 .input:-webkit-autofill:hover,
 .input:-webkit-autofill:focus,

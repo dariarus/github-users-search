@@ -1,4 +1,4 @@
-import {SearchOptions, TErrorState} from './props';
+import {TErrorState} from './props';
 import {TUsersListData} from './response-data';
 
 export interface IUsersListSliceState {
@@ -40,8 +40,4 @@ export interface IPopup {
   reposCount?: number,
   followers?: number,
   following?: number
-}
-
-export interface IRadioButtons {
-  searchOption: string
 }

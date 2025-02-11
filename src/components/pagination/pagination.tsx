@@ -30,7 +30,6 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
   let lastPage = 0;
 
   if (paginationRange) {
-    // Если из данных получается меньше 2 страниц, компонент не будет отрисован
     if (currentPage === 0 || paginationRange.length < 2) {
       return null;
     }
@@ -63,7 +62,7 @@ export const Pagination: FunctionComponent<TPagination> = (props) => {
           if (pageNumber === '...') {
             return (
               <li>
-                &#8230; {/* многоточие */}
+                &#8230;
               </li>
             )
           } else {

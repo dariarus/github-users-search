@@ -18,7 +18,6 @@ describe('users list async action', () => {
   const pageNumber = 1;
 
   it('should fetch users data successfully', async () => {
-    // Создаем виртуальное хранилище
     const store = mockStore({});
 
     const mockFetchResponse = {
@@ -41,7 +40,6 @@ describe('users list async action', () => {
 
     fetchMock.mockResponseOnce(JSON.stringify(mockFetchResponse));
 
-    // Типы ожидаемых экшенов при вызове dispatch
     const expectedActions = [
       {type: 'usersList/getUsersList'},
       {type: 'usersList/getUsersListSuccess', payload: mockFetchResponse},
@@ -55,24 +53,20 @@ describe('users list async action', () => {
 
     expect(store.getActions()).toEqual(expectedActions);
 
-    /* Проверяем пейлоуды в сторе: */
-    // Проверяем пейлоуды в сторе для экшена типа 'pagination/getDataPerPageSuccess'
     const paginationSuccessAction = store.getActions().find(action => action.type === 'pagination/getDataPerPageSuccess');
-    expect(paginationSuccessAction).toBeTruthy(); // Убеждаемся, что экшен был найден
+    expect(paginationSuccessAction).toBeTruthy();
     expect(paginationSuccessAction.payload).toEqual({
       total_count: mockFetchResponse.total_count,
       currentPage: pageNumber
     });
 
-    // Проверяем пейлоуды в сторе для экшена типа 'usersList/getUsersListSuccess'
     const usersListSuccessAction = store.getActions().find(action => action.type === 'usersList/getUsersListSuccess');
-    expect(usersListSuccessAction).toBeTruthy(); // Убеждаемся, что экшен был найден
+    expect(usersListSuccessAction).toBeTruthy();
     expect(usersListSuccessAction.payload).toEqual(mockFetchResponse);
 
-    // Проверяем пейлоуды в сторе для экшена типа 'usersList/getUsersList'
     const usersListAction = store.getActions().find(action => action.type === 'usersList/getUsersList');
-    expect(usersListAction).toBeTruthy(); // Убеждаемся, что экшен был найден
-    expect(usersListAction.payload).toBeUndefined(); // Пейлоуд для 'usersList/getUsersList' не определен
+    expect(usersListAction).toBeTruthy();
+    expect(usersListAction.payload).toBeUndefined();
   });
 
   it('should fetch users data failed', async () => {
@@ -98,7 +92,7 @@ describe('users list async action', () => {
       expect(usersListAction.payload).toBeUndefined();
 
       const usersListFailedAction = store.getActions().find(action => action.type === 'usersList/getUsersListFailed');
-      expect(usersListFailedAction).toBeTruthy(); // Убеждаемся, что экшен был найден
+      expect(usersListFailedAction).toBeTruthy();
       expect(usersListFailedAction.payload).toEqual({message: responseError.message});
     }
   });
@@ -114,7 +108,6 @@ describe('sorted users list async action', () => {
   const pageNumber = 1;
 
   it('should fetch ascending-sorted users data successfully', async () => {
-    // Создаем виртуальное хранилище
     const store = mockStore({});
 
     const mockFetchResponse = {
@@ -137,7 +130,6 @@ describe('sorted users list async action', () => {
 
     fetchMock.mockResponseOnce(JSON.stringify(mockFetchResponse));
 
-    // Типы ожидаемых экшенов при вызове dispatch
     const expectedActions = [
       {type: 'usersList/getUsersList'},
       {type: 'usersList/getUsersListSuccess', payload: mockFetchResponse},
@@ -205,7 +197,6 @@ describe('popup user data async action', () => {
   const pageNumber = 1;
 
   it('should fetch user data successfully', async () => {
-    // Создаем виртуальное хранилище
     const store = mockStore({});
 
     const mockFetchResponse = {
@@ -220,7 +211,6 @@ describe('popup user data async action', () => {
 
     fetchMock.mockResponseOnce(JSON.stringify(mockFetchResponse));
 
-    // Типы ожидаемых экшенов при вызове dispatch
     const expectedActions = [
       {type: 'popup/getPopupData'},
       {type: 'popup/getPopupDataSuccess', payload: mockFetchResponse},

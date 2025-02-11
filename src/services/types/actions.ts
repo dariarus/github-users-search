@@ -1,6 +1,6 @@
 import {ActionCreatorWithoutPayload, ActionCreatorWithPayload} from '@reduxjs/toolkit';
 
-import {SearchOptions, TErrorState} from './props';
+import {TErrorState} from './props';
 import {TPopupData, TUsersListData} from './response-data';
 
 export interface IUsersListActions {

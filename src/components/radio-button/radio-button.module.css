@@ -4,7 +4,6 @@
 }
 
 .input {
-  /* скрыть дефолтный вид радио-кнопки*/
   -webkit-appearance: none;
   appearance: none;
   margin: 0 5px 0 15px;

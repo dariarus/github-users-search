@@ -23,5 +23,5 @@
     line-height: 42px;
     color: #fff;
     z-index: 4;
-    transform: translate(-50%, -50%); /* элемент / попап любого размера находится ровно посередине */
+    transform: translate(-50%, -50%);
 }

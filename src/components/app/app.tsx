@@ -14,7 +14,6 @@ import {popupActions} from '../../services/store-slices/popup';
 import {useAppDispatch, useSelector} from '../../services/types/hooks';
 import {SearchOptions} from '../../services/types/props';
 import {searchValueActions} from "../../services/store-slices/search-value";
-import usersList from "../../services/store-slices/users-list";
 import {Preloader} from "../preloader/preloader";
 
 function App() {
