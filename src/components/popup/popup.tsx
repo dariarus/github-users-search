@@ -28,6 +28,7 @@ export const Popup: FunctionComponent<TPopup> = (props) => {
         <>
           <Overlay onClose={props.onClosePopup}/>
           <div className={popupStyles.popup}>
+            <div className={popupStyles['popup-wrapper']}>
             <button className={popupStyles['popup__cross-icon']} onClick={props.onClosePopup}>
             </button>
             {
@@ -96,6 +97,7 @@ export const Popup: FunctionComponent<TPopup> = (props) => {
                   </p>
                 </>
             }
+            </div>
           </div>
         </>
       ), popupRoot
