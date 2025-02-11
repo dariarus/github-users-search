@@ -15,19 +15,23 @@
   border-radius: 10px;
   z-index: 4;
   transform: translate(-50%, -50%);
-  scrollbar-color: #fff transparent; /* «цвет ползунка» «цвет полосы скроллбара» */
+  scrollbar-color: #fff transparent;
   scrollbar-width: thin;
 }
 
-.popup::-webkit-scrollbar {
+.popup-wrapper {
+
+}
+
+.popup-wrapper::-webkit-scrollbar {
   width: 4px;
   height: 0;
+  background-color: transparent;
   border: solid 1px #fff;
   border-radius: 50px;
 }
 
-/* ползунок скроллбара */
-.popup::-webkit-scrollbar-thumb {
+.popup-wrapper::-webkit-scrollbar-thumb {
   background-color: #fff;
   border-radius: 50px;
 }
