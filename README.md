@@ -48,7 +48,7 @@ cd ./docker
 docker compose build & docker compose up -d
 ```
 
-*Используемые технологии*: HTML, CSS, БЭМ, React, TSX, Redux Toolkit, flexbox, JavaScript, TypeScript, Webpack*, GitHub REST API, Jest, Docker, npm
+*Используемые технологии*: HTML, CSS, БЭМ, React, TSX, Redux Toolkit, flexbox, JavaScript, TypeScript, Webpack*, GitHub REST API, Jest, Docker, npm, normalize.css
 
 \* Приложение создано с помощью команды create-react-app. На момент начала работы над приложением такой способ еще не считался устаревшим. В настоящее время автор использует Vite и тестирует приложения с помощью библиотеки vitest, которая по функционалу очень близка к используемой в данной работе jest. Примеры проектов на Vite можно посмотреть в других репозиториях автора. 
 
