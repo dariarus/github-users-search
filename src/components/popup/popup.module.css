@@ -45,7 +45,7 @@
   height: 20px;
   background: url(../../images/cross.svg) no-repeat center center #061b2c;
   cursor: pointer;
-  transition-duration: 0.2s;
+  transition-duration: 0.3s;
 }
 
 .popup__cross-icon:hover {
